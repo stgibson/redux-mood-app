@@ -1,7 +1,11 @@
-const moodReducer = (state, action) => {
+const moodReducer = (state = {}, action) => {
   switch(action.type) {
-    case "CHANGE_FACE":
-      return { ...state, mood: action.mood };
+    case "CHANGE_MOOD":
+      return {
+        ...state,
+        mood: action.payload.mood,
+        color: action.payload.color
+      };
     default:
       return state;
   }
